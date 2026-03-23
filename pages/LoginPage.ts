@@ -3,9 +3,10 @@ import { CommonPage } from "./CommonPage";
 
 export class LoginPage extends CommonPage {
 
-    private readonly txtAccountLogin = this.page.locator("#taiKhoan");
-    private readonly txtPasswordLogin = this.page.locator("#matKhau");
-    private readonly btnLogin = this.page.locator("//button[span[text()='Đăng nhập']]");
+    // chỉ định trong form sign-in-container để tránh trùng với form sign-up
+    private readonly txtAccountLogin = this.page.locator(".sign-in-container input[name='taiKhoan']");
+    private readonly txtPasswordLogin = this.page.locator(".sign-in-container input[name='matKhau']");
+    private readonly btnLogin = this.page.locator(".sign-in-container button[type='submit']");
 
     constructor(page: Page) {
         super(page);

@@ -13,7 +13,8 @@ export class BasePage {
     }
 
     async goTo(url: string) {
-        await this.page.goto(url);
+        // await this.page.goto(url); //bị lỗi
+        await this.page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
     }
 
     async input(locator: PlaywrightLocator, value: string, timeoutInSec: number = TIMEOUT.DEFAULT_TIMEOUT) {
